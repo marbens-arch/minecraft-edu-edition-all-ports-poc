@@ -6,7 +6,7 @@ This is intended to be used on Android devices for the security bug in Minecraft
 
 ## Installation
 ```
-ANDROID_NDK_PATH=/path/to/ndk make
+ANDROID_NDK_HOME=/path/to/ndk make -e
 ```
 
 Optionally set the `ARCH` environment variable to whatever architecture you're compiling for (armv7a is the default).
