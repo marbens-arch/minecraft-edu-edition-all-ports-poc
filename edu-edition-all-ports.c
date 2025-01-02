@@ -39,9 +39,10 @@ int main(void)
     while (1) {
         bytes_received = recvfrom(sock, received_message, BUFFER_SIZE, 0, (struct sockaddr*)&client_addr, &client_addr_len);
 
-        // This error is not fatal
-        if (bytes_received < 0)
+        if (bytes_received < 0) {
             perror("Unable to receive bytes");
+            continue;
+        }
 
         fwrite(received_message, 1, bytes_received, stdout);
 
