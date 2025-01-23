@@ -15,6 +15,9 @@ You can also set the minimum API level you're compiling for with the `ANDROID_AP
 
 ## Usage
 Run `/path/to/edu-edition-all-ports` on a device, and then send something to port 6666 over UDP to that device using its public IP address.
+It should send "Hello from Minecraft Education Edition All Ports PoC" in a packet back.
+
+`nc -u <public ip> 6666` on Linux should output the same packet data to stdout, as long as you put some data in stdin, for example, by typing something in the terminal and pressing enter. `nc` sends unencrypted packets, so don't put anything private in there!
 
 ## License
 Temporarily all rights reserved, to prevent people from publishing this exploit, which will also publish the vulnerability, which is currently unfixed.
