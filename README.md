@@ -6,12 +6,14 @@ This is intended to be used on Android devices for the security bug in Minecraft
 
 ## Installation
 ```
-ANDROID_NDK_HOME=/path/to/ndk make -e
+ANDROID_NDK_HOME=/path/to/ndk make
 ```
 
-Optionally set the `ARCH` environment variable to whatever architecture you're compiling for (armv7a is the default).
+Optionally set the `ARCH` environment variable to whatever architecture you're compiling the server for (armv7a is the default).
 
 You can also set the minimum API level you're compiling for with the `ANDROID_API_LEVEL` environment variable (optional) (defaults to 21).
+
+Optionally set the `ANDROID_CFLAGS` variable to change the compiler flags for the server program (defaults to the same value of `CFLAGS`).
 
 ## Usage
 Run `/path/to/edu-edition-all-ports` on a device, and then send something to port 6666 over UDP to that device using its public IP address.

@@ -6,8 +6,7 @@
 #include <sys/socket.h>
 #include <netinet/udp.h>
 
-#define BUFFER_SIZE 512
-#define STRING "Hello from Minecraft Education Edition All Ports PoC"
+#include "datainfo.h"
 
 int main(void)
 {
@@ -40,17 +39,17 @@ int main(void)
         bytes_received = recvfrom(sock, received_message, BUFFER_SIZE, 0, (struct sockaddr*)&client_addr, &client_addr_len);
 
         if (bytes_received < 0) {
-            perror("Unable to receive bytes");
+            perror("Unable to receive data");
             continue;
         }
 
         fwrite(received_message, 1, bytes_received, stdout);
 
-        bytes_sent = sendto(sock, STRING, strlen(STRING), 0, (struct sockaddr*)&client_addr, client_addr_len);
+        bytes_sent = sendto(sock, STRING, BUFFER_SIZE, 0, (struct sockaddr*)&client_addr, client_addr_len);
 
         // This error is not fatal
         if (bytes_sent < 0)
-            perror("Unable to send bytes");
+            perror("Unable to send acknowledgement");
     }
 
     close(sock);
