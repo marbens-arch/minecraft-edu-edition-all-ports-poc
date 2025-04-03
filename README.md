@@ -4,6 +4,8 @@ This program will send "Hello from Minecraft Education Edition All Ports PoC" to
 
 This is intended to be used on Android devices for the security bug in Minecraft Education Edition, where it opens all UDP ports, instead of just the needed ones.
 
+This vulnerability is similar to qbittorrent/qBittorrent#1758.
+
 ## Building
 ```
 ANDROID_NDK_HOME=/path/to/ndk make
@@ -36,3 +38,11 @@ cd /data/local/tmp
 
 ## License
 MIT License. Full text available in LICENSE.txt.
+
+## Notes
+The vulnerability doesn't open all UDP ports for me, but it creates a pinhole
+that shows as internal port 0, external port 0 in my router.
+
+I suspect my router is not [standard-compliant](https://github.com/qbittorrent/qBittorrent/issues/1758#issuecomment-47003605).
+
+If you have a known standard-compliant UPnP router, and it works for you, create an issue on this repository.
