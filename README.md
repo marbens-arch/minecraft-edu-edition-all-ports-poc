@@ -4,7 +4,7 @@ This program will send "Hello from Minecraft Education Edition All Ports PoC" to
 
 This is intended to be used on Android devices for the security bug in Minecraft Education Edition, where it opens all UDP ports, instead of just the needed ones.
 
-## Installation
+## Building
 ```
 ANDROID_NDK_HOME=/path/to/ndk make
 ```
@@ -15,12 +15,24 @@ You can also set the minimum API level you're compiling for with the `ANDROID_AP
 
 Optionally set the `ANDROID_CFLAGS` variable to change the compiler flags for the server program (defaults to the same value of `CFLAGS`).
 
+## Installation
+Through ADB:
+```
+adb push /path/to/edu-edition-all-ports-server /data/local/tmp
+```
+
 ## Usage
 Run `/path/to/edu-edition-all-ports-server` on an Android device, and then send something to port 6666 over UDP to that device using its public IP address.
 It should send "Hello from Minecraft Education Edition All Ports PoC" in a packet back.
 
 Use `/path/to/edu-edition-all-ports-tester <public IP>` to test if a device is vulnerable.
 If you get a whole lot of retransmits, it's probably not.
+
+Through `adb shell`:
+```
+cd /data/local/tmp
+./edu-edition-all-ports-server
+```
 
 ## License
 MIT License. Full text available in LICENSE.txt.
