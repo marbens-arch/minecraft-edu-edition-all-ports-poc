@@ -22,4 +22,4 @@ It should send "Hello from Minecraft Education Edition All Ports PoC" in a packe
 `nc -u <public ip> 6666` on Linux should output the same packet data to stdout, as long as you put some data in stdin, for example, by typing something in the terminal and pressing enter. `nc` sends unencrypted packets, so don't put anything private in there!
 
 ## License
-Temporarily all rights reserved, to prevent people from publishing this exploit, which will also publish the vulnerability, which is currently unfixed.
+MIT License. Full text available in LICENSE.txt.
