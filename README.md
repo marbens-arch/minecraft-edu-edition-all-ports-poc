@@ -16,10 +16,11 @@ You can also set the minimum API level you're compiling for with the `ANDROID_AP
 Optionally set the `ANDROID_CFLAGS` variable to change the compiler flags for the server program (defaults to the same value of `CFLAGS`).
 
 ## Usage
-Run `/path/to/edu-edition-all-ports` on a device, and then send something to port 6666 over UDP to that device using its public IP address.
+Run `/path/to/edu-edition-all-ports-server` on an Android device, and then send something to port 6666 over UDP to that device using its public IP address.
 It should send "Hello from Minecraft Education Edition All Ports PoC" in a packet back.
 
-`nc -u <public ip> 6666` on Linux should output the same packet data to stdout, as long as you put some data in stdin, for example, by typing something in the terminal and pressing enter. `nc` sends unencrypted packets, so don't put anything private in there!
+Use `/path/to/edu-edition-all-ports-tester <public IP>` to test if a device is vulnerable.
+If you get a whole lot of retransmits, it's probably not.
 
 ## License
 MIT License. Full text available in LICENSE.txt.
