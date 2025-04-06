@@ -2,9 +2,28 @@
 ## Description
 This program will send "Hello from Minecraft Education Edition All Ports PoC" to any device sending a message to it on port 6666 over UDP.
 
-This is intended to be used on Android devices for the security bug in Minecraft Education Edition, where it opens all UDP ports, instead of just the needed ones.
+The server is intended to be used on Android devices. The tester is meant to be ran on any POSIX-compliant system.
 
+## Details about the vulnerability
 This vulnerability is similar to qbittorrent/qBittorrent#1758.
+
+Prerequisites:
+
+* A router that supports UPnP
+* Minecraft Education Edition
+
+Steps to reproduce:
+
+1. Launch the game
+2. Choose "If you don't have an account, try a demo lesson."
+3. Tick "Accept Terms"
+4. Press the button that says "Play"
+5. Press "Start Lesson"
+6. Press the "Confirm" button in the screen safe area window
+7. Choose "Fantastic Fairgrounds"
+8. Press "CREATE WORLD"
+
+After doing these steps, there should be open external port 0 in your router, which opens [all ports](https://github.com/qbittorrent/qBittorrent/issues/1758#issuecomment-47003605), and you can run the tester program with your public IP address to confirm.
 
 ## Building
 ```
@@ -46,3 +65,5 @@ that shows as internal port 0, external port 0 in my router.
 I suspect my router is not [standard-compliant](https://github.com/qbittorrent/qBittorrent/issues/1758#issuecomment-47003605).
 
 If you have a known standard-compliant UPnP router, and it works for you, create an issue on this repository.
+
+This vulnerability is only known by me to work on Android, although it will probably work on other platforms too.
